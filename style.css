@@ -1,0 +1,235 @@
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --bg-gradient:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #1e1b4b 50%,
+            #0f172a 100%
+        );
+
+    --card-bg: rgba(255, 255, 255, 0.85);
+
+    --card-border: rgba(255, 255, 255, 0.3);
+
+    --text-main: #0f172a;
+
+    --text-sub: #334155;
+
+    --focus-ring: #38bdf8;
+
+    --accent-glow:
+        0 0 25px rgba(2, 132, 199, 0.4);
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+   ========================================================= */
+
+[data-theme="contrast"] {
+
+    --bg-gradient: #000000 !important;
+
+    --card-bg: #000000 !important;
+
+    --card-border: #ffff00 !important;
+
+    --text-main: #ffff00 !important;
+
+    --text-sub: #ffffff !important;
+
+    --focus-ring: #00ffff !important;
+
+    --accent-glow:
+        0 0 15px #ffff00 !important;
+}
+
+
+[data-theme="contrast"] * {
+
+    background-color: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+
+    box-shadow: none !important;
+
+    text-shadow: none !important;
+}
+
+
+[data-theme="contrast"] img {
+
+    filter:
+        grayscale(100%)
+        contrast(200%) !important;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+
+    font-family:
+        'Inter',
+        system-ui,
+        sans-serif;
+
+    background:
+        var(--bg-gradient);
+
+    color:
+        var(--text-main);
+
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   GLASS CARD
+   ========================================================= */
+
+.glass-card {
+
+    background:
+        var(--card-bg);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    border:
+        1px solid var(--card-border);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.08);
+
+    transition:
+        all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.glass-card:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.01);
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        var(--accent-glow);
+}
+
+
+/* =========================================================
+   TEXTO GRADIENTE
+   ========================================================= */
+
+.gradient-text {
+
+    background:
+        linear-gradient(
+            135deg,
+            #38bdf8 0%,
+            #818cf8 50%,
+            #c084fc 100%
+        );
+
+    -webkit-background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+/* =========================================================
+   LINK "IR PARA O CONTEÚDO"
+   ========================================================= */
+
+.skip-link {
+
+    position: absolute;
+
+    top: -100px;
+
+    left: 1rem;
+
+    background: #38bdf8;
+
+    color: #0f172a;
+
+    padding:
+        0.75rem
+        1.5rem;
+
+    border-radius:
+        0 0 12px 12px;
+
+    font-weight: 800;
+
+    z-index: 9999;
+
+    transition:
+        top 0.2s ease;
+}
+
+
+.skip-link:focus {
+
+    top: 0;
+
+    outline:
+        4px solid var(--focus-ring);
+}
+
+
+/* =========================================================
+   FOCO DE ACESSIBILIDADE
+   ========================================================= */
+
+:focus-visible {
+
+    outline:
+        4px solid var(--focus-ring) !important;
+
+    outline-offset:
+        4px !important;
+}
+
+
+/* =========================================================
+   ONDAS DO PODCAST
+   ========================================================= */
+
+.sound-wave-bar {
+
+    animation:
+        wavePulse 1.2s infinite ease-in-out alternate;
+}
+
+
+@keyframes wavePulse {
+
+    0% {
+        height: 15%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
